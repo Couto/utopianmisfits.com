@@ -19,7 +19,7 @@ M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.3
                 ]
                 []
     in
-    Html.node "svg" [ attribute "width" "16", attribute "height" "16", attribute "viewBox" "0 0 16 16" ] [ pathNode ]
+        Html.node "svg" [ attribute "width" "16", attribute "height" "16", attribute "viewBox" "0 0 16 16" ] [ pathNode ]
 
 
 twitterIcon : Html Never
@@ -34,16 +34,12 @@ M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-
                 ]
                 []
     in
-    Html.node "svg" [ attribute "width" "16", attribute "height" "16", attribute "viewBox" "0 0 16 16" ] [ pathNode ]
+        Html.node "svg" [ attribute "width" "16", attribute "height" "16", attribute "viewBox" "0 0 16 16" ] [ pathNode ]
 
 
 header : List (Html Never)
 header =
-    [ div [ class "header-logo" ]
-        [ img [ alt "Author's blog", src "/img/logo.png", attribute "width" "100" ]
-            []
-        ]
-    , div [ class "navigation" ]
+    [ div [ class "navigation" ]
         [ ul []
             [ li []
                 [ a [ href "/posts" ]
@@ -74,17 +70,13 @@ footer =
             []
         , div [ class "link" ]
             [ githubIcon
-            , a [ href "https://github.com" ]
-                [ text "Author's GitHub" ]
+            , a [ href "https://github.com/utopianmisfits" ]
+                [ text "Utopian Misfits' GitHub" ]
             ]
         , div [ class "link" ]
             [ twitterIcon
-            , a [ href "https://twitter.com" ]
-                [ text "Author's Twitter" ]
-            ]
-        , div [ class "link" ]
-            [ a [ href "https://www.npmjs.com/package/elmstatic" ]
-                [ text "Created with Elmstatic" ]
+            , a [ href "https://twitter.com/utopianmisfits" ]
+                [ text "Utopian Misfits' Twitter" ]
             ]
         ]
 
