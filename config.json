@@ -1,0 +1,23 @@
+{
+    "siteTitle": "Utopian Misfits",
+    "outputDir": "_site",
+    "copy": {
+        "/posts": "/"
+    },
+    "feed": {
+        "type": "rss",
+        "title": "Utopian Misfits",
+        "description": "Digital Agency based in Aveiro, Portugal",
+        "id": "https://utopianmisfits.com",
+        "link": "https://utopianmisfits.com/posts",
+        "image": "https://utopianmisfits.com/img/logo.png",
+        "copyright": "Copyright: Author",
+        "language": "en",
+        "generator": "Elmstatic",
+        "author": {
+          "name": "Utopian Misfits",
+          "link": "https://utopianmisfits.com/about"
+        }
+    },
+    "tags": ["other", "software"]
+}
