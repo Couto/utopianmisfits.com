@@ -61,14 +61,7 @@ header =
 footer : Html Never
 footer =
     div [ class "footer" ]
-        [ img
-            [ alt "Author's blog"
-            , src "/img/logo.png"
-            , attribute "style" "float: left; padding-top: 7px"
-            , attribute "width" "75"
-            ]
-            []
-        , div [ class "link" ]
+        [ div [ class "link" ]
             [ githubIcon
             , a [ href "https://github.com/utopianmisfits" ]
                 [ text "Utopian Misfits' GitHub" ]
@@ -86,17 +79,12 @@ layout title contentItems =
     case contentItems of
         Ok contentHtml ->
             Ok <|
-                header
-                    ++ [ div [ class "sidebar" ]
-                            []
-                       , div [ class "sidebar2" ]
-                            []
-                       , div [ class "content" ]
-                            ([ h1 [] [ text title ] ] ++ contentHtml)
-                       , footer
-                       , Elmstatic.stylesheet "/styles.css"
-                       , Styles.styles
-                       ]
+                [ div [ class "content" ]
+                    ([ h1 [] [ text title ] ] ++ contentHtml)
+                , footer
+                , Elmstatic.stylesheet "/styles.css"
+                , Styles.styles
+                ]
 
         Err error ->
             Err error
