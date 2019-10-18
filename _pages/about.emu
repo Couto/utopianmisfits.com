@@ -1,4 +1,7 @@
 |> Metadata 
-    title = About the author
+    title = About Utopian Misfits
 
-You can write something about *yourself* here using `elm-markup`{name}.
+|> H2
+    Utopian Misfits
+
+a Digital Agency based in Aveiro, Portugal
