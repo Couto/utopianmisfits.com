@@ -1,0 +1,24 @@
+image: utopianmisfits/elmstatic:latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - elmstatic build
+  artifacts:
+    paths:
+      - _sites
+
+pages:
+  stage: deploy
+  script:
+    - elmstatic build
+  artifacts:
+    paths:
+    - _sites
+  only:
+    - source
+
