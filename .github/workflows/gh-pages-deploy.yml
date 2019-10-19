@@ -1,0 +1,45 @@
+name: Deploy to Github Pages
+
+on: 
+  push:
+    branches:
+      - source
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Build with Elmstatic
+      uses: docker://utopianmisfits/elmstatic:latest
+      with:
+        args: build
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{ github.sha }}
+        path: _site
+
+  deploy:
+    runs-on: ubuntu-18.04
+    needs: Build with Elmstatic
+    steps:
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v1
+      with:
+        name: ${{ github.sha }}
+
+    - name: Create CNAME
+      run: echo ${{ secrets.CNAME }} | tee ./${{ github.sha }}/CNAME
+
+    - name: Deploy to Github Pages
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ${{ github.sha }}
+      with:
+        emptyCommits: false
